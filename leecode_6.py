@@ -16,3 +16,17 @@ class Solution:
                     zstring[j][i] = s[j + i * 2]
                 else:
                     zstring[j][nums * 4 - j] = s[j + i * 2]
+
+
+class Solution:
+    def convert(self, s: str, numRows: int):
+        if numRows < 2:
+            return s  # 行数为1的情况
+        res = ["" for _ in range(numRows)]
+        i, flag = 0, -1
+        for c in s:
+            res[i] += c  # str -> list
+            if i == 0 or i == numRows - 1:
+                flag = -flag
+            i += flag
+        return "".join(res)  # join函数拼接字符串？
